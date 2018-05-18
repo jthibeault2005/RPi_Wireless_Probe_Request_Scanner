@@ -1,0 +1,24 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
+
+# Alias file
+source ~/.bash_alias
+
+# History (or .bash_history) attributes
+# Avoid succesive duplicates in the bash command history.
+export HISTCONTROL=ignoredups
+# Append commands to the bash command history file (~/.bash_history)
+# instead of overwriting it.
+shopt -s histappend
+# Append commands to the history every time a prompt is shown,
+# instead of after closing the session.
+PROMPT_COMMAND='history -a'
+# If previous line in history is the same as the current do not copy
+HISTCONTROL=ignoreboth
+# Sets size of history file (.bash_history)
+HISTSIZE=100000
+HISTFILESIZE=100000

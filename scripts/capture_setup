@@ -1,0 +1,7 @@
+Things to setup:
+#Put this line in /etc/rc.local
+#screen -S dumpcap_probe -d -m /root/capture_packets/capture.sh
+#
+#Also make sure to change udev and NetworkManger at:
+#/etc/udev/rules.d/ add rule to apply wlan0 to mac of usable interface
+#/etc/NetworkManager/NetworkManager.conf exclude interface you will sniff

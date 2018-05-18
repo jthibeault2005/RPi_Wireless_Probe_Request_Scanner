@@ -1,0 +1,37 @@
+# Alias file
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "`dircolors`"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+
+alias ls='ls -F'
+alias ll='ls -lh'
+alias lt='ls -lt'
+alias la='ls -la'
+alias xtar='tar -xvzf'
+alias ctar='tar -czvf'
+alias ssh='ssh -X'
+alias vi='vim'
+alias cdcaptured='cd ~/Capture_RPI3/captured/'
+alias rename_files='sh ~/.bash_rename_files'
+alias virpinetboot='vim /root/Capture_RPI3/scripts/RPI_Network_Boot.sh'
+alias rpinetboot='/root/Capture_RPI3/scripts/RPI_Network_Boot.sh'
+
+alias rsyncbak='rsync --verbose --archive --delete /root/Capture_RPI3/ b@192.168.5.201:/Users/b/Desktop/'
+alias bak_sys='tar -cjvf /root/Capture_RPI3/system.bak/system_`date '+%Y%m%d_%H%M%S'`.bz2 \
+/etc/network/interfaces \
+/etc/udev/rules.d/10-netinterfaces.rules \
+/etc/rc.local \
+/root/.bash_history \
+/root/.bashrc \
+/root/.bash_alias \
+/root/Capture_RPI3/filters/ \
+/root/Capture_RPI3/misc/ \
+/root/Capture_RPI3/scripts/ \
+/etc/hostapd/hostapd.conf \
+/etc/default/hostapd \
+/etc/dnsmasq.conf \
+/etc/wpa_supplicant/wpa_supplicant.conf'

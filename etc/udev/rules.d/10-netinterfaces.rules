@@ -1,0 +1,5 @@
+KERNEL=="wlan*", ATTR{address}=="aa:aa:aa:aa:aa:aa", NAME="wlan0"
+KERNEL=="wlan*", ATTR{address}=="aa:aa:aa:aa:aa:aa", NAME="wlan1"
+KERNEL=="wlan*", ATTR{address}=="aa:aa:aa:aa:aa:aa", NAME="wlan2"
+KERNEL=="wlan*", ATTR{address}=="aa:aa:aa:aa:aa:aa", NAME="wlan3"
+KERNEL=="wlan*", ATTR{address}=="aa:aa:aa:aa:aa:aa", NAME="wlan4"
