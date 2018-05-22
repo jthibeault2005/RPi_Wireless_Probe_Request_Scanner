@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This creates a wireless hotspot.
+#Creates a wireless hotspot.
 createAdHocNetwork()
 {
 	local iface="$1"
@@ -12,6 +12,8 @@ createAdHocNetwork()
 	echo -e "\nHotspot network created\n"
 }
 
+#Attempts to connect to wifi, if it fails it
+# run createAdHocNetwork to create a hotspot.
 rcRedundancy()
 {
 	# Set local variables
@@ -51,6 +53,7 @@ rcRedundancy()
 	fi
 }
 
+#Connects to a specified wifi
 connectWiFi()
 {
 	local iface="$1"
@@ -76,6 +79,7 @@ connectWiFi()
 	fi
 }
 
+#Checks to see if dnsmasq and hostapd are stopped and disabled.
 downDNSAP()
 {
 	if [ "`systemctl is-active hostapd`" == "active" ]; then
@@ -88,6 +92,8 @@ downDNSAP()
 	fi
 }
 
+#Takes the interface and channel to scan as arguments and runs
+# dumpcap in screen session that can be reconnected at a later time.
 dumpCap()
 {
 	local iface="$1"
@@ -100,6 +106,8 @@ dumpCap()
 	screen -S dumpcap_probe_`echo $iface'_'$chan` -d -m /usr/bin/dumpcap -i $iface -I -f "wlan[0] == 0x40" -P -b filesize:5000 -b files:50 -w /root/Capture_RPI3/captured/"capture_probe_req_`date '+%Y-%m-%d_%H%M%S'`_`echo $iface'_'$chan`" &
 }
 
+#This function runs dumpCap and watchwlanX.  This is the
+# function that starts the whole wireless capture process.
 captureX()
 {
 	local ifaces=()
@@ -121,6 +129,8 @@ captureX()
 	watchwlanX "${ifaces[@]}"
 }
 
+#Watchs the size of the most recent packet using the du command and places
+# this watch command in a screen session.
 watchwlanX()
 {
 	#local beg="screen -S watch_captured -d -m watch -n .1 '"
@@ -209,10 +219,4 @@ connectWiFi "$INTWLAN" "RTime"
 captureX "$DCAPWLAN" 11 "$DCAPWLAN2" 02
 gpxlogger -d -f /root/Capture_RPI3/gps/gps_`date '+%Y-%m-%d_%H%M%S'`.gpx
 
-
-# Add this line to /etc/rc.local
-#/root/Capture_RPI3/scripts/RPI_Network_Boot.sh
-# Website of original Bootstrapper
-#http://www.raspberryconnect.com/network/item/315-rpi3-auto-wifi-hotspot-if-no-internet
-# Site used to for dumpcap
-#http://www.algissalys.com/network-security/passive-packet-sniffing-on-wifi-connections
+#######################################
