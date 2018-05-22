@@ -8,7 +8,7 @@ This is a script that starts the dumpcap program to collect probe requests.  Thi
 ```
 /root/Capture_RPI3/scripts/RPI_Network_Boot.sh
 ```
-This script was also created/modified on the Kali OS.
+This script was also created/modified on the [Kali OS](https://docs.kali.org/kali-on-arm/install-kali-linux-arm-raspberry-pi).
 
 ## Other Sources
 Website of original [Bootstrapper](http://www.raspberryconnect.com/network/item/315-rpi3-auto-wifi-hotspot-if-no-internet)
@@ -16,7 +16,19 @@ Website of original [Bootstrapper](http://www.raspberryconnect.com/network/item/
 Site used to for [dumpcap](http://www.algissalys.com/network-security/passive-packet-sniffing-on-wifi-connections)
 
 ## Implementation
-1. Yea
+1. Where to start!  Just install Kali linux using the proper [Kali image](https://docs.kali.org/kali-on-arm/install-kali-linux-arm-raspberry-pi).
+2. Next connect to wifi and update then install the following packages (just double check the RPI_Network_Boot.sh):
+- dumpcap
+- dnsmasq
+- hostapd
+- screen
+- watch
+- iw iwconfig iwlist
+3. Make sure all the directories in the RPI_Network_Boot.sh have been created.
+4. Place this line in /etc/rc.local:
+```
+/location/of/script/RPI_Network_Boot.sh
+```
 
 <!--
 git add .
