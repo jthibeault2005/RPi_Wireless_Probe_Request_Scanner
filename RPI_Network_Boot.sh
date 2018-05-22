@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#This creates a wireless hotspot.
 createAdHocNetwork()
 {
 	local iface="$1"
