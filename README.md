@@ -12,6 +12,7 @@ This script was also created/modified on the Kali OS.
 
 ## Other Sources
 Website of original [Bootstrapper](http://www.raspberryconnect.com/network/item/315-rpi3-auto-wifi-hotspot-if-no-internet)
+
 Site used to for [dumpcap](http://www.algissalys.com/network-security/passive-packet-sniffing-on-wifi-connections)
 
 ## Implementation
